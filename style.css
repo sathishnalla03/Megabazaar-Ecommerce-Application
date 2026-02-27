@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+    animation: fadeInDown 0.8s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #dc3545 !important;
+}
+
+.search-form input {
+    width: 480px;
+    transition: 0.3s ease;
+}
+
+.search-form input:focus {
+    transform: scale(1.03);
+    box-shadow: 0 0 8px rgba(220, 53, 69, 0.5);
+}
+
+/* Carousel */
+.carousel-item img {
+    height: 80vh;
+    object-fit: cover;
+    filter: brightness(65%);
+    transition: transform 6s ease-in-out;
+}
+
+.carousel-item.active img {
+    transform: scale(1.05);
+}
+
+.carousel-caption {
+    bottom: 20%;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Text Animation */
+.carousel-caption h2,
+.carousel-caption p,
+.carousel-caption a {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+
+/* Animate active slide text */
+.carousel-item.active .carousel-caption h2 {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.carousel-item.active .carousel-caption p {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+.carousel-item.active .carousel-caption a {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.9s;
+}
+
+
+/* Product Section */
+.card {
+    border-radius: 1rem;
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Support Us Section */
+#support {
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.support-card {
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+.support-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #b02a37;
+}
+
+/* Fade animations */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.delay-3 {
+    transition-delay: 0.3s;
+}
+
+.delay-4 {
+    transition-delay: 0.4s;
+}
+
+.delay-5 {
+    transition-delay: 0.5s;
+}
+
+/* --------------------------
+   CART (right-side drawer)
+   -------------------------- */
+.cart-panel {
+    position: fixed;
+    top: 0;
+    right: -420px;
+    width: 380px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -4px 0 18px rgba(0, 0, 0, 0.18);
+    z-index: 2000;
+    transition: right 0.38s cubic-bezier(.2, .9, .2, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
+
+.cart-panel.open {
+    right: 0;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    /* for Safari support */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
+    z-index: 1990;
+}
+
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.cart-header,
+.cart-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 6px;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-footer {
+    border-top: 1px solid #eee;
+    border-bottom: none;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px 6px;
+    max-height: calc(100vh - 160px);
+}
+
+.cart-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 4px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.cart-item .info {
+    flex: 1;
+}
+
+.cart-item .info h6 {
+    margin: 0 0 6px 0;
+    font-size: 0.95rem;
+}
+
+.cart-item .info p {
+    margin: 0;
+    font-weight: 700;
+    color: #dc3545;
+}
+
+/* qty + controls inside cart */
+.qty-controls {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-top: 6px;
+}
+
+.qty-controls button {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 6px;
+    background: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Add-to-cart button state + green star */
+.btn.added {
+    background-color: #198754 !important;
+    color: #fff !important;
+    border-color: #198754 !important;
+}
+
+.star {
+    display: inline-block;
+    margin-left: 8px;
+    color: #28a745;
+    font-size: 1.05rem;
+    transform-origin: center;
+    animation: starPop 0.45s ease forwards;
+}
+
+@keyframes starPop {
+    0% {
+        transform: scale(0.2) rotate(-20deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.25) rotate(10deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+#support {
+    background: #f8fdf8;
+    overflow: hidden;
+}
+
+.support-card {
+    border-radius: 15px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.support-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 128, 0, 0.2);
+}
+
+.icon-wrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 {
+    transition-delay: 0.2s;
+}
+
+.delay-2 {
+    transition-delay: 0.4s;
+}
+
+.delay-3 {
+    transition-delay: 0.6s;
+}
+
+.delay-4 {
+    transition-delay: 0.8s;
+}
+
+.delay-5 {
+    transition-delay: 1s;
+}
+
+
